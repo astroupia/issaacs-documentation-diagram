@@ -1,0 +1,23 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Already logged in;
+  stop
+else (No)
+  repeat
+    :Enter username and password;
+    if (Credentials correct?) then (Yes)
+      :Validate credentials;
+      :Login successful;
+      break
+    else (No)
+      :Show Error Prompt;
+    endif
+  repeat while (Credentials incorrect)
+endif
+
+|Main|
+stop
+@enduml

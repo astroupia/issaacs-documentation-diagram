@@ -1,0 +1,37 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to user registration;
+  repeat
+    :Enter user details;
+    if (Data complete and valid?) then (Yes)
+      :Validate data;
+      if (Username is available?) then (Yes)
+        :Register user;
+        :Success message;
+      else (No)
+        :Prompt to choose different username;
+        :Select unique username;
+        :Re-validate data;
+        if (Data is valid?) then (Yes)
+          :Register user;
+          :Success message;
+        else (No)
+          :Display error message;
+          stop
+        endif
+      endif
+    else (No)
+      :Show Error Prompt;
+    endif
+  repeat while (Data incomplete or invalid)
+else (No)
+  :Display error message;
+  stop
+endif
+
+|Main|
+stop
+@enduml

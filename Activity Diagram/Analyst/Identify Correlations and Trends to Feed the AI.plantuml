@@ -1,0 +1,30 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to identify correlations;
+  repeat
+    :Select data sets for analysis;
+    if (Data sets selected?) then (Yes)
+      :Process data for analysis;
+      if (Analysis successful?) then (Yes)
+        :Display correlations and trends;
+        :Identification successful;
+        break
+      else (No)
+        :Show Error Prompt;
+      endif
+    else (No)
+      :Show Error Prompt;
+    endif
+  repeat while (Data sets not selected or analysis unsuccessful)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+  stop
+endif
+
+|Main|
+stop
+@enduml

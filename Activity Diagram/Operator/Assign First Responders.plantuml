@@ -1,0 +1,23 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to assign first responders;
+  repeat
+    :Select incident or task;
+    if (First responders available?) then (Yes)
+      :Assign first responders;
+      :Success message;
+    else (No)
+      :Display message: No first responders available.;
+  endif
+  repeat while (First responders not assigned)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+endif
+
+|Main|
+stop
+@enduml

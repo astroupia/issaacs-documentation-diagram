@@ -1,0 +1,26 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to casualty rate setting;
+  repeat
+    :Enter desired casualty rate threshold;
+    if (Threshold valid?) then (Yes)
+      :Save threshold;
+      :Success message;
+    else (No)
+      :Display error message;
+      stop
+      endif
+    endif
+  repeat while (Threshold not valid)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+  stop
+endif
+
+|Main|
+stop
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to upload button;
+  repeat
+    :Select footage to upload;
+    if (Footage selected?) then (Yes)
+      :Process and upload footage;
+      :Associate with incident;
+      :Success message;
+    else (No)
+      :Display message: Select footage.;
+      :Redirect to upload button;
+  endif
+  repeat while (Footage uploaded)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+endif
+
+|Main|
+stop
+@enduml

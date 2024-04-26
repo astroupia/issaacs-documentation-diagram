@@ -1,0 +1,25 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to issue form;
+  repeat
+    :Describe issue or concern in detail;
+    if (Description provided?) then (Yes)
+      :Submit issue to operator;
+      :Notify operator;
+      :Success message;
+    else (No)
+      :Display message: Description required.;
+      :Redirect to issue form;
+  endif
+  repeat while (Issue submitted)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+endif
+
+|Main|
+stop
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to report;
+  repeat
+    :Select report to save;
+    if (Report selected?) then (Yes)
+      :Save report to designated folder;
+      :Success message;
+    else (No)
+      :Display message: No report selected.;
+      :Redirect to report selection;
+  endif
+  repeat while (Report saved)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+endif
+
+|Main|
+stop
+@enduml

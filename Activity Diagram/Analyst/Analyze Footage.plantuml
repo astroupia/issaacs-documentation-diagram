@@ -1,0 +1,24 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to footage analysis;
+  repeat
+    :Select footage for analysis;
+    if (Footage selected?) then (Yes)
+      :Process footage for analysis;
+      :Analysis successful;
+      break
+    else (No)
+      :Show Error Prompt;
+    endif
+  repeat while (Footage not selected)
+else (No)
+  :Display error message;
+  stop
+endif
+
+|Main|
+stop
+@enduml

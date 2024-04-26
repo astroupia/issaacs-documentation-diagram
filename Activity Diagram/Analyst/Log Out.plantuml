@@ -1,0 +1,16 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to logout option;
+  :Log out;
+  :Redirect to login page;
+else (No)
+  :Display error message;
+  stop
+endif
+
+|Main|
+stop
+@enduml

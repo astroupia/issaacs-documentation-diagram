@@ -1,0 +1,27 @@
+@startuml
+
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to report generation;
+  repeat
+    :Enter report details and findings;
+    if (Data complete and valid?) then (Yes)
+      :Validate data;
+      :Generate report;
+      :Success message;
+    else (No)
+      :Display error message;
+      :Loop Back to Prior Action;
+    endif
+  repeat while (Data incomplete or invalid)
+else (No)
+  :Display error message;
+  stop
+endif
+
+|Main|
+stop
+
+@enduml

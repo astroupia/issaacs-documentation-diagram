@@ -1,0 +1,30 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to data mining;
+  repeat
+    :Enter search criteria;
+    if (Criteria entered?) then (Yes)
+      :Process search criteria;
+      if (Data found?) then (Yes)
+        :Retrieve relevant data;
+        :Data mining successful;
+        break
+      else (No)
+        :Show Error Prompt;
+      endif
+    else (No)
+      :Show Error Prompt;
+    endif
+  repeat while (Criteria not entered or data not found)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+  stop
+endif
+
+|Main|
+stop
+@enduml

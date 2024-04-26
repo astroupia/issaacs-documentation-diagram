@@ -1,0 +1,26 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to search data;
+  repeat
+    :Enter search query;
+    if (Query entered?) then (Yes)
+      :Process query against database;
+      :Retrieve relevant data;
+      :Format and transmit results;
+      :Success message;
+    else (No)
+      :Display message: Enter search query.;
+      :Redirect to search data;
+  endif
+  repeat while (Query executed)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+endif
+
+|Main|
+stop
+@enduml

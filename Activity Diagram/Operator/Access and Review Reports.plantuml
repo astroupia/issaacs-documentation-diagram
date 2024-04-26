@@ -1,0 +1,25 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to access reports;
+  repeat
+    :Select desired report;
+    if (Report selected?) then (Yes)
+      :Retrieve and display report;
+      :Review report;
+      break
+    else (No)
+      :Show Error Prompt;
+    endif
+  repeat while (Report not selected)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+  stop
+endif
+
+|Main|
+stop
+@enduml

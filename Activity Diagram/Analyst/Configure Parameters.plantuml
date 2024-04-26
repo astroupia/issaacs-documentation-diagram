@@ -1,0 +1,23 @@
+@startuml
+|Main|
+start
+:Access system;
+if (Logged in?) then (Yes)
+  :Navigate to parameter configuration;
+  repeat
+    :Adjust parameters;
+    if (Changes saved?) then (Yes)
+      :Save changes;
+      :Success message;
+    else (No)
+      :Display error message;
+  endif
+  repeat while (Changes not saved)
+else (No)
+  :Display error message;
+  :Redirect to login page;
+endif
+
+|Main|
+stop
+@enduml

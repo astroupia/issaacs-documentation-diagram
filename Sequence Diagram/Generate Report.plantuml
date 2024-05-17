@@ -1,23 +1,26 @@
 @startuml
-|Main|
-start
-:Access system;
-if (Logged in?) then (Yes)
-  :Navigate to assign first responders;
-  repeat
-    :Select incident or task;
-    if (First responders available?) then (Yes)
-      :Assign first responders;
-      :Success message;
-    else (No)
-      :Display message: No first responders available.;
-  endif
-  repeat while (First responders not assigned)
-else (No)
-  :Display error message;
-  :Redirect to login page;
-endif
+  actor Analyst
+  boundary "System" as System
 
-|Main|
-stop
+  activate Analyst
+  Analyst -> System: Analyze Footage Request
+  activate System
+
+  System -> System: Validate Analyst's Credentials
+  System -> Footage: Retrieve Footage Data
+  activate Footage
+  Footage --> System: Provide Footage Data
+  deactivate Footage
+  System -> Incident: Identify Incident
+  activate Incident
+  Incident --> System: Incident Identified
+  deactivate Incident
+  System -> AI: Analyze Footage
+  AI -> AI: Process Footage Using AI Algorithms
+  activate AI
+  AI --> System: Analysis Results
+  deactivate AI
+  System --> Analyst: Return Analysis Results
+  deactivate System
+  deactivate Analyst
 @enduml

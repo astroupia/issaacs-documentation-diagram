@@ -1,0 +1,25 @@
+@startuml
+  actor Analyst
+  boundary "System" as System
+
+  activate Analyst
+  Analyst -> System: Generate Report Request
+
+  activate System
+  System -> System: Validate Analyst's Credentials
+  System -> DataMiningEngine: Retrieve Data for Report Generation
+  activate DataMiningEngine
+  DataMiningEngine -> DataMiningEngine: Perform Data Mining
+  DataMiningEngine --> System: Data Mining Results
+  deactivate DataMiningEngine
+
+  System -> System: Generate Report Content
+  System -> Report: Create Report
+  activate Report
+
+  deactivate System
+
+  Report --> Analyst: Return Generated Report
+  deactivate Report
+  deactivate Analyst
+@enduml

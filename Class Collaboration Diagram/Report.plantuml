@@ -1,0 +1,14 @@
+@startuml
+class Report
+class Footage
+class Incident
+class Operator
+class Analyst
+
+Incident --> Analyst: Alarm
+Analyst --> Report: Create Report
+Report --> Footage: Gather
+Report --> Operator: Sent to
+Operator --> FristResponder: Brief
+
+@enduml

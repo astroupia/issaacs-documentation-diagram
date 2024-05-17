@@ -1,0 +1,12 @@
+@startuml
+class Analyst
+class DataMiningEngine
+class Report
+class Operator
+
+
+Analyst --> DataMiningEngine: Retrieve Data
+DataMiningEngine --> Analyst: Provide Data
+Analyst --> Report: Create Report
+Report --> Operator: Sent to
+@enduml
